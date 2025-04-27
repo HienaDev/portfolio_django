@@ -1,0 +1,88 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block title %}{{ disciplina.nome }}{% endblock %}
+
+{% block extra_style %}
+    .discipline-info {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .discipline-info p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    .project-list, .docente-list {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .docente-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .project-list li {
+        display: flex;
+        flex-direction: column; /* imagem em cima, texto em baixo */
+        align-items: flex-start; /* alinha tudo à esquerda */
+        margin-bottom: 20px;
+    }
+
+    .project-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+{% endblock %}
+
+{% block content %}
+    <div class="discipline-info">
+        <h2>{{ disciplina.nome }}</h2>
+        <p><strong>Ano:</strong> {{ disciplina.ano }} | <strong>Semestre:</strong> {% if disciplina.semestre == 1 %}1º Semestre{% else %}2º Semestre{% endif %}</p>
+        <p><strong>Conceitos abordados:</strong> {{ disciplina.conceitos_aplicados }}</p>
+
+        {% if disciplina.link_moodle %}
+            <p><strong>Link Moodle:</strong> <a href="{{ disciplina.link_moodle }}" target="_blank">{{ disciplina.link_moodle }}</a></p>
+        {% endif %}
+        {% if disciplina.link_site_ulusofona %}
+            <p><strong>Link Site ULisboa:</strong> <a href="{{ disciplina.link_site_ulusofona }}" target="_blank">{{ disciplina.link_site_ulusofona }}</a></p>
+        {% endif %}
+    </div>
+
+    <div class="docente-list">
+        <h3>Docentes Associados</h3>
+        <ul>
+            {% for docente in disciplina.docentes.all %}
+                <li>
+                    <a href="{% url 'portfolio:docente_detalhe' docente.id %}">{{ docente.nome }}</a>
+                </li>
+            {% empty %}
+                <li>No docentes associated with this discipline.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="project-list">
+        <h3>Projetos Associados</h3>
+        <ul>
+            {% for projeto in disciplina.projeto_set.all %}
+                <li>
+                    {% if projeto.imagens.first %}
+                        <a href="{% url 'portfolio:projeto_detalhe' projeto.id %}">
+                            <img class="project-image" src="{{ projeto.imagens.first.imagem.url }}" alt="Image for {{ projeto.titulo }}">
+                        </a>
+                    {% endif %}
+                    <a href="{% url 'portfolio:projeto_detalhe' projeto.id %}">{{ projeto.titulo }}</a>
+                </li>
+            {% empty %}
+                <li>No projects associated with this discipline.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "portfolio/base.html" %}
+
+{% block title %}Portfolio Home{% endblock %}
+
+{% block content %}
+    <h2>🚀 Welcome to my portfolio!</h2>
+    <p>I am passionate about technology and I'm learning to build amazing experiences on the web.</p>
+    <p>On this site, you'll find my projects, my learning journey, and my digital dreams.</p>
+
+    <p>Check out my games and other creations on <a href="https://hienadev.itch.io">hienadev.itch.io</a>!</p>
+
+    <h3>My Projects</h3>
+    <ul class="projetos" style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+        {% for projeto in projetos %}
+            <li style="background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 10px; text-align: center;">
+                <a href="{% url 'portfolio:projeto_detalhe' projeto.pk %}" style="text-decoration: none; color: inherit;">
+                    {% if projeto.imagens.first %}
+                        <img src="{{ projeto.imagens.first.imagem.url }}" alt="Image of {{ projeto.titulo }}" style="width: 100%; height: auto; border-radius: 8px 8px 0 0;">
+                    {% endif %}
+                    <h4 style="margin-top: 10px;">{{ projeto.titulo }}</h4>
+                </a>
+            </li>
+        {% empty %}
+            <li>No projects to show.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

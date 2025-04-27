@@ -1,0 +1,71 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block title %}{{ aluno.nome }}{% endblock %}
+
+{% block extra_style %}
+    .project-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+
+    .project-item {
+        width: 220px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .project-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-item a {
+        display: block;
+        margin-top: 8px;
+        font-weight: 500;
+    }
+{% endblock %}
+
+{% block content %}
+    <div class="profile-container">
+        <h2>{{ aluno.nome }}</h2>
+        <img src="{{ aluno.foto.url }}" alt="{{ aluno.nome }}">
+        <div class="email">Email: <a href="mailto:{{ aluno.email }}">{{ aluno.email }}</a></div>
+    </div>
+
+    <div class="container">
+        <h3>Associated Projects</h3>
+        <div class="project-list">
+            {% for projeto in projetos %}
+                <div class="project-item">
+                    {% if projeto.imagens.all %}
+                        <a href="{% url 'portfolio:projeto_detalhe' projeto.id %}">
+                            <img src="{{ projeto.imagens.first.imagem.url }}" alt="Image for {{ projeto.titulo }}">
+                        </a>
+                    {% endif %}
+                    <a href="{% url 'portfolio:projeto_detalhe' projeto.id %}">{{ projeto.titulo }}</a>
+                </div>
+            {% empty %}
+                <p>No projects.</p>
+            {% endfor %}
+        </div>
+
+        <h3>Associated Subjects</h3>
+        <ul>
+            {% for disciplina in disciplinas %}
+                <li>
+                  <a href="{% url 'portfolio:disciplina_detalhe' disciplina.id %}">
+                    {{ disciplina.nome }}
+                  </a>
+                </li>
+            {% empty %}
+                <li>No disciplines.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

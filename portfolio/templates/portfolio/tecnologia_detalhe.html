@@ -1,0 +1,119 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block title %}{{ tecnologia.nome }}{% endblock %}
+{% block extra_style %}
+    .tech-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    
+    .tech-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        margin-right: 20px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tech-description {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        border-left: 4px solid #3498db;
+    }
+    
+    .tech-link {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 6px 15px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    .tech-link:hover {
+        background-color: #2980b9;
+    }
+    
+    .project-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+    }
+    
+    .project-item {
+        width: 220px;
+        text-align: center;
+        margin-bottom: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .project-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .project-item img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .project-item a {
+        display: block;
+        margin-top: 8px;
+        font-weight: 500;
+    }
+{% endblock %}
+{% block content %}
+    <div class="tech-header">
+        <img src="{{ tecnologia.logo.url }}" alt="{{ tecnologia.nome }}" class="tech-logo">
+        <h2>{{ tecnologia.nome }}</h2>
+    </div>
+    
+    <div class="tech-description">
+        <p>{{ tecnologia.descricao }}</p>
+        {% if tecnologia.site_link %}
+            <a href="{{ tecnologia.site_link }}" target="_blank" class="tech-link">Official Website</a>
+        {% endif %}
+    </div>
+    
+    <h3>Projects Using This Technology</h3>
+    
+    <div class="project-list">
+        {% for projeto in projetos %}
+            <div class="project-item">
+                {% if projeto.imagens.first %}
+                    <a href="{% url 'portfolio:projeto_detalhe' projeto.id %}">
+                        <img src="{{ projeto.imagens.first.imagem.url }}" alt="Image for {{ projeto.titulo }}">
+                    </a>
+                {% else %}
+                    <div style="height: 150px; background-color: #e9ecef; border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                        <span>No image</span>
+                    </div>
+                {% endif %}
+                <a href="{% url 'portfolio:projeto_detalhe' projeto.id %}">{{ projeto.titulo }}</a>
+                <p><small>{{ projeto.data_criacao|date:"d/m/Y" }}</small></p>
+            </div>
+        {% empty %}
+            <p>No projects are currently using this technology.</p>
+        {% endfor %}
+    </div>
+    
+    <div class="back-link">
+        <a href="{% url 'portfolio:index' %}">Back to Home</a>
+    </div>
+{% endblock %}

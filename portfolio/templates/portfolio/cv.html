@@ -1,0 +1,132 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block title %}My CV{% endblock %}
+
+{% block extra_style %}
+    .cv-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .cv-buttons {
+        display: flex;
+        gap: 15px;
+        margin: 20px 0 30px 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .button:hover {
+        background-color: #2980b9;
+        text-decoration: none;
+        color: white;
+    }
+    
+    .preview-button {
+        background-color: #2ecc71;
+    }
+    
+    .preview-button:hover {
+        background-color: #27ae60;
+    }
+    
+    .button-icon {
+        margin-right: 8px;
+    }
+    
+    .cv-info {
+        text-align: center;
+        margin-bottom: 20px;
+        max-width: 600px;
+    }
+    
+    .cv-thumbnail {
+        width: 100%;
+        max-width: 350px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin: 20px 0;
+        transition: transform 0.3s ease;
+    }
+    
+    .cv-thumbnail:hover {
+        transform: scale(1.02);
+    }
+    
+    .cv-highlights {
+        text-align: left;
+        margin-top: 30px;
+        background-color: #f8f9fa;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        border-left: 4px solid #3498db;
+    }
+    
+    .cv-highlights h3 {
+        margin-top: 0;
+        color: #2c3e50;
+    }
+    
+    .cv-highlights ul {
+        padding-left: 20px;
+        list-style-type: disc;
+    }
+    
+    .cv-highlights li {
+        margin: 10px 0;
+        border-bottom: none;
+    }
+{% endblock %}
+
+{% block content %}
+    <h2>My Resume</h2>
+    
+    <div class="cv-container">
+        <div class="cv-info">
+            <p>My complete resume is available for download as a PDF. You can also view it in a new window.</p>
+        </div>
+        
+        <div class="cv-buttons">
+            <a href="{% static 'cv.pdf' %}" download class="button">
+                <span class="button-icon">📥</span> Download CV (PDF)
+            </a>
+            
+            <a href="{% static 'cv.pdf' %}" target="_blank" class="button preview-button">
+                <span class="button-icon">👁️</span> View in New Window
+            </a>
+        </div>
+        
+        <a href="{% static 'cv.pdf' %}" target="_blank">
+            <img src="{% static 'cv_thumbnail.png' %}" alt="CV Preview" class="cv-thumbnail">
+        </a>
+        
+        <!-- CV Highlights -->
+        <div class="cv-highlights">
+            <h3>CV Highlights</h3>
+            <ul>
+                <li><strong>Education:</strong> Bachelor's Degree in Video Games - Universidade Lusófona</li>
+                <li><strong>Skills:</strong> Game Development, Unity, C# Programming, Web Development, Python Programming, Django</li>
+                <li><strong>Languages:</strong> Portuguese (native), English (fluent)</li>
+                <li><strong>Interests:</strong> Game Development, Artificial Intelligence, Web Development</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

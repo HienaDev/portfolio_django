@@ -1,0 +1,81 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block title %}Technologies{% endblock %}
+
+{% block extra_style %}
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .tech-card {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .tech-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .tech-card img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 15px;
+    }
+    
+    .tech-card h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .tech-card p {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+        color: #555;
+    }
+    
+    .view-tech-btn {
+        background-color: #3498db;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        margin-top: auto;
+    }
+    
+    .view-tech-btn:hover {
+        background-color: #2980b9;
+        text-decoration: none;
+    }
+{% endblock %}
+
+{% block content %}
+    <h2>Technologies</h2>
+    <p>Explore the technologies used across various projects in my portfolio.</p>
+    
+    <div class="tech-grid">
+        {% for tecnologia in tecnologias %}
+            <div class="tech-card">
+                <img src="{{ tecnologia.logo.url }}" alt="{{ tecnologia.nome }}">
+                <h3>{{ tecnologia.nome }}</h3>
+                <p>{{ tecnologia.descricao|truncatewords:20 }}</p>
+                <a href="{% url 'portfolio:tecnologia_detalhe' tecnologia.id %}" class="view-tech-btn">View Details</a>
+            </div>
+        {% empty %}
+            <p>No technologies available.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

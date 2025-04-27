@@ -1,0 +1,201 @@
+{% extends "portfolio/base.html" %}
+{% load static embed_filters %}
+
+{% block title %}{{ projeto.titulo }}{% endblock %}
+
+{% block extra_style %}
+    .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .technologies li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        width: 150px;
+    }
+    
+    .technologies li:hover {
+        transform: translateY(-5px);
+    }
+
+    .technologies img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+    
+    .technologies .tech-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .technologies .tech-desc {
+        font-size: 0.9em;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .tech-link-btn {
+        background-color: #3498db;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.8em;
+        transition: background-color 0.3s ease;
+    }
+    
+    .tech-link-btn:hover {
+        background-color: #2980b9;
+        text-decoration: none;
+    }
+
+    .images {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .images img {
+        max-width: 300px;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .students, .teacher {
+        display: flex;
+        justify-content: start;
+        gap: 15px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+
+    .students figure, .teacher figure {
+        text-align: center;
+    }
+
+    .students img, .teacher img {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border: 2px solid #3498db;
+    }
+
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+{% endblock %}
+
+{% block content %}
+    <h2>{{ projeto.titulo }}</h2>
+    <p><strong>Creation Date:</strong> {{ projeto.data_criacao|date:"d/m/Y" }}</p>
+
+    <p><strong>Description:</strong> {{ projeto.descricao }}</p>
+
+    {% if projeto.github_link %}
+        <p><strong>GitHub:</strong> <a href="{{ projeto.github_link }}" target="_blank">View on GitHub</a></p>
+    {% endif %}
+
+    {% if projeto.video_demo_link %}
+        <h3>Demo Video</h3>
+        <div class="video-container">
+            <iframe src="{{ projeto.video_demo_link|video_embed_url }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    {% endif %}
+
+    {% if projeto.link_projeto %}
+        <p><strong>Project Link:</strong> <a href="{{ projeto.link_projeto }}" target="_blank">View on Itch.io</a></p>
+    {% endif %}
+
+    <h3>Subject</h3>
+    <p>
+      <a href="{% url 'portfolio:disciplina_detalhe' projeto.disciplina.id %}">
+        {{ projeto.disciplina.nome }}
+      </a>
+    </p>
+
+    <h3>Technologies Used</h3>
+    <ul class="technologies">
+        {% for tecnologia in projeto.tecnologias.all %}
+            <li>
+                <a href="{% url 'portfolio:tecnologia_detalhe' tecnologia.id %}">
+                    <img src="{{ tecnologia.logo.url }}" alt="{{ tecnologia.nome }}">
+                </a>
+                <span class="tech-name">{{ tecnologia.nome }}</span>
+                <span class="tech-desc">{{ tecnologia.descricao|truncatewords:10 }}</span>
+                <a href="{% url 'portfolio:tecnologia_detalhe' tecnologia.id %}" class="tech-link-btn">View Details</a>
+            </li>
+        {% empty %}
+            <li>No technologies associated.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Technical Challenges</h3>
+    <p>{{ projeto.desafios }}</p>
+
+    <h3>Project Images</h3>
+    <div class="images">
+        {% for imagem in projeto.imagens.all %}
+            <div>
+                <img src="{{ imagem.imagem.url }}" alt="{{ imagem.legenda }}">
+                {% if imagem.legenda %}
+                    <p>{{ imagem.legenda }}</p>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>No images available.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Students -->
+    <h3>Students</h3>
+    <div class="students">
+        {% for aluno in projeto.alunos.all %}
+            <figure>
+                <a href="{% url 'portfolio:aluno_detalhe' aluno.id %}">
+                    <img src="{{ aluno.foto.url }}" alt="{{ aluno.nome }}">
+                    <figcaption>{{ aluno.nome }}</figcaption>
+                </a>
+            </figure>
+        {% empty %}
+            <p>No students associated.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Teachers -->
+    <h3>Teachers</h3>
+    <div class="teacher">
+        {% for docente in projeto.disciplina.docentes.all %}
+            <figure>
+                <a href="{% url 'portfolio:docente_detalhe' docente.id %}">
+                    <img src="{{ docente.foto.url }}" alt="{{ docente.nome }}">
+                    <figcaption>{{ docente.nome }}</figcaption>
+                </a>
+            </figure>
+        {% empty %}
+            <p>No teachers associated with this project.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

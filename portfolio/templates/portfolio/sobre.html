@@ -1,0 +1,136 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block title %}About My Portfolio Application{% endblock %}
+
+{% block content %}
+    <h2>About My Portfolio Application</h2>
+    
+    <section>
+        <h3>Project Overview</h3>
+        <p>This portfolio application showcases my projects, academic journey, and technical skills. It's designed to present my work in an organized and visually appealing manner, highlighting the technologies I've learned and the projects I've developed.</p>
+        <p><strong>GitHub Repository:</strong> <a href="https://github.com/HienaDev/portfolio_django.git" target="_blank">https://github.com/HienaDev/portfolio_django.git</a></p>
+    </section>
+
+    <section>
+        <h3>Technologies Used</h3>
+        
+        <h4>Backend</h4>
+        <ul>
+            <li><strong>Python 3:</strong> Core programming language</li>
+            <li><strong>Django:</strong> Web framework for rapid development and clean, pragmatic design</li>
+            <li><strong>SQLite:</strong> Lightweight database for development (can be migrated to PostgreSQL in production)</li>
+        </ul>
+        
+        <h4>Frontend</h4>
+        <ul>
+            <li><strong>HTML5:</strong> Structure and content</li>
+            <li><strong>CSS3:</strong> Styling and animations</li>
+            <li><strong>JavaScript:</strong> Interactive elements and particle animations</li>
+            <li><strong>Google Fonts:</strong> Cal Sans typography</li>
+        </ul>
+        
+        <h4>Deployment & Tools</h4>
+        <ul>
+            <li><strong>PythonAnywhere:</strong> Hosting and deployment</li>
+            <li><strong>Git/GitHub:</strong> Version control and code repository</li>
+            <li><strong>Django Template Language:</strong> For dynamic content rendering</li>
+            <li><strong>Django ORM:</strong> Object-Relational Mapping for database interactions</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Application Architecture</h3>
+        <p>The application follows Django's <strong>Model-Template-View (MTV)</strong> architectural pattern:</p>
+        
+        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #3498db;">
+            <h4>MTV Pattern Explained</h4>
+            <ul>
+                <li><strong>Models (M):</strong> Define the data structure, handle data validation, and manage database interactions. In this application, models include Projeto, Aluno, Docente, Disciplina, Tecnologia, and Imagem.</li>
+                <li><strong>Templates (T):</strong> Handle the presentation layer, defining how data is displayed to users. Templates use Django Template Language to create dynamic HTML pages.</li>
+                <li><strong>Views (V):</strong> Process user requests, interact with models to retrieve data, and pass that data to templates for rendering. They serve as controllers that coordinate the application flow.</li>
+            </ul>
+        </div>
+        
+        <h4>Architecture Diagram</h4>
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="{% static 'architecture.png' %}" alt="Portfolio Application Architecture" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        </div>
+        
+        <h4>Component Interaction</h4>
+        <ol>
+            <li>User sends a request to the application (e.g., visiting a project page)</li>
+            <li>Django's URL dispatcher routes the request to the appropriate view function</li>
+            <li>The view function processes the request, queries the database using models</li>
+            <li>Data is passed to the template for rendering</li>
+            <li>The rendered HTML is sent back to the user's browser</li>
+        </ol>
+    </section>
+
+    <section>
+        <h3>Database Modeling</h3>
+        <p>The application uses a relational database with the following entity relationships:</p>
+        
+        <h4>Entity Relationship Diagram</h4>
+        <div style="text-align: center; margin: 20px 0;">
+           <img src="{% static 'portfolio.png' %}" alt="Database Entity Relationship Diagram" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        </div>
+        
+        <h4>Key Relationships</h4>
+        <ul>
+            <li><strong>One-to-One Relationships:</strong>
+                <ul>
+                    <li>Each Projeto is associated with exactly one Disciplina</li>
+                </ul>
+            </li>
+            <li><strong>One-to-Many Relationships:</strong>
+                <ul>
+                    <li>A Projeto can have multiple Imagem entities (project images)</li>
+                </ul>
+            </li>
+            <li><strong>Many-to-Many Relationships:</strong>
+                <ul>
+                    <li>Projetos can have multiple Alunos (students) and vice versa</li>
+                    <li>Projetos can use multiple Tecnologias (technologies) and vice versa</li>
+                    <li>Disciplinas can have multiple Docentes (teachers) and vice versa</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <h4>Models Overview</h4>
+        <ul>
+            <li><strong>Disciplina (Subject):</strong> Represents academic courses with associated teachers</li>
+            <li><strong>Docente (Teacher):</strong> Represents faculty members teaching disciplines</li>
+            <li><strong>Aluno (Student):</strong> Represents students who participate in projects</li>
+            <li><strong>Tecnologia (Technology):</strong> Represents programming languages, frameworks, and tools</li>
+            <li><strong>Projeto (Project):</strong> Represents development projects linked to disciplines and students</li>
+            <li><strong>Imagem (Image):</strong> Represents visual materials for projects</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Application Page Structure</h3>
+        <p>The application follows a hierarchical structure of pages:</p>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <img src="{% static 'site_map.png' %}" alt="Application Site Map" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+        </div>
+        
+        <h4>Main Navigation Areas</h4>
+        <ul>
+            <li><strong>Home:</strong> Displays a welcome message and overview of projects</li>
+            <li><strong>About:</strong> This page - presents technical information about the application</li>
+            <li><strong>Technologies:</strong> Lists all technologies with details and associated projects</li>
+            <li><strong>Detail Pages:</strong>
+                <ul>
+                    <li>Project details - Shows comprehensive information about each project</li>
+                    <li>Student details - Shows student information and associated projects</li>
+                    <li>Teacher details - Shows teacher information and associated disciplines</li>
+                    <li>Discipline details - Shows course information, teachers, and projects</li>
+                    <li>Technology details - Shows technology information and projects using it</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+{% endblock %}
