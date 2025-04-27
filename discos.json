@@ -1,0 +1,152 @@
+[
+    {
+        "banda": "Queen",
+        "titulo": "A Night at the Opera",
+        "ano_lancamento": 1975,
+        "musicas": [
+            {
+                "titulo": "Bohemian Rhapsody",
+                "duracao": 354
+            },
+            {
+                "titulo": "Love of My Life",
+                "duracao": 218
+            }
+        ]
+    },
+    {
+        "banda": "The Beatles",
+        "titulo": "Abbey Road",
+        "ano_lancamento": 1969,
+        "musicas": [
+            {
+                "titulo": "Come Together",
+                "duracao": 259
+            },
+            {
+                "titulo": "Here Comes the Sun",
+                "duracao": 185
+            }
+        ]
+    },
+    {
+        "banda": "Nirvana",
+        "titulo": "Nevermind",
+        "ano_lancamento": 1991,
+        "musicas": [
+            {
+                "titulo": "Smells Like Teen Spirit",
+                "duracao": 301
+            },
+            {
+                "titulo": "Come As You Are",
+                "duracao": 219
+            }
+        ]
+    },
+    {
+        "banda": "Radiohead",
+        "titulo": "OK Computer",
+        "ano_lancamento": 1997,
+        "musicas": [
+            {
+                "titulo": "Paranoid Android",
+                "duracao": 387
+            },
+            {
+                "titulo": "Karma Police",
+                "duracao": 263
+            }
+        ]
+    },
+    {
+        "banda": "Pink Floyd",
+        "titulo": "The Dark Side of the Moon",
+        "ano_lancamento": 1973,
+        "musicas": [
+            {
+                "titulo": "Time",
+                "duracao": 413
+            },
+            {
+                "titulo": "Money",
+                "duracao": 382
+            }
+        ]
+    },
+    {
+        "banda": "Led Zeppelin",
+        "titulo": "Led Zeppelin IV",
+        "ano_lancamento": 1971,
+        "musicas": [
+            {
+                "titulo": "Stairway to Heaven",
+                "duracao": 482
+            },
+            {
+                "titulo": "Black Dog",
+                "duracao": 296
+            }
+        ]
+    },
+    {
+        "banda": "The Rolling Stones",
+        "titulo": "Let It Bleed",
+        "ano_lancamento": 1969,
+        "musicas": [
+            {
+                "titulo": "Gimme Shelter",
+                "duracao": 271
+            },
+            {
+                "titulo": "You Can't Always Get What You Want",
+                "duracao": 447
+            }
+        ]
+    },
+    {
+        "banda": "AC/DC",
+        "titulo": "Back in Black",
+        "ano_lancamento": 1980,
+        "musicas": [
+            {
+                "titulo": "Back In Black",
+                "duracao": 255
+            },
+            {
+                "titulo": "You Shook Me All Night Long",
+                "duracao": 210
+            }
+        ]
+    },
+    {
+        "banda": "Foo Fighters",
+        "titulo": "Wasting Light",
+        "ano_lancamento": 2011,
+        "musicas": [
+            {
+                "titulo": "Walk",
+                "duracao": 277
+            },
+            {
+                "titulo": "Rope",
+                "duracao": 256
+            }
+        ]
+    },
+    {
+        "banda": "Red Hot Chili Peppers",
+        "titulo": "Californication",
+        "ano_lancamento": 1999,
+        "musicas": [
+            {
+                "titulo": "Californication",
+                "duracao": 330
+            },
+            {
+                "titulo": "Scar Tissue",
+                "duracao": 217
+            }
+        ]
+    }
+]

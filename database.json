@@ -1,0 +1,418 @@
+[
+{
+  "model": "portfolio.disciplina",
+  "pk": 1,
+  "fields": {
+    "nome": "Desenvolvimento de Jogos Digitais 2",
+    "ano": 2,
+    "semestre": 1,
+    "link_moodle": "https://moodle.ensinolusofona.pt/course/view.php?id=23808",
+    "link_site_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/videojogos/ULHT1075-17342",
+    "conceitos_aplicados": "Desenvolvimento de um jogo completo durante um semestre, aprendizagem de Unity 3D e jogos do tipo *escape room*",
+    "docentes": [
+      1
+    ]
+  }
+},
+{
+  "model": "portfolio.disciplina",
+  "pk": 2,
+  "fields": {
+    "nome": "Realidades Expandidas XR",
+    "ano": 3,
+    "semestre": 2,
+    "link_moodle": "https://moodle.ensinolusofona.pt/course/view.php?id=31380",
+    "link_site_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/videojogos/ULHT1075-25114",
+    "conceitos_aplicados": "VR game implemention over the course of 2 weeks.",
+    "docentes": [
+      2
+    ]
+  }
+},
+{
+  "model": "portfolio.disciplina",
+  "pk": 3,
+  "fields": {
+    "nome": "Inteligência Artificial",
+    "ano": 2,
+    "semestre": 1,
+    "link_moodle": "https://moodle.ensinolusofona.pt/course/view.php?id=17733",
+    "link_site_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/videojogos/ULHT1075-2129",
+    "conceitos_aplicados": "Noções básicas de IA para jogos.\r\n\tMovimento e movimento inteligente: movimento 2D e 3D, direção/condução, previsão de localização.\r\n\tProcura de caminhos, orientação e navegação: grafos, algoritmos de Dijkstra e A*, grelhas e malhas de navegação, funções de custo; movimento coordenado, emergente e com waypoints.",
+    "docentes": [
+      3
+    ]
+  }
+},
+{
+  "model": "portfolio.disciplina",
+  "pk": 4,
+  "fields": {
+    "nome": "Computação Gráfica",
+    "ano": 2,
+    "semestre": 1,
+    "link_moodle": "https://moodle.ensinolusofona.pt/course/view.php?id=18945",
+    "link_site_ulusofona": "https://www.ulusofona.pt/lisboa/licenciaturas/videojogos/ULHT1075-2267",
+    "conceitos_aplicados": "Creating shaders.",
+    "docentes": [
+      4
+    ]
+  }
+},
+{
+  "model": "portfolio.docente",
+  "pk": 1,
+  "fields": {
+    "nome": "Nélio Codices",
+    "email": "nelio.codices@ulusofona.pt",
+    "foto": "docentes/fotos/image_2025-04-25_134515747.png"
+  }
+},
+{
+  "model": "portfolio.docente",
+  "pk": 2,
+  "fields": {
+    "nome": "Fábio André Sousa Dias",
+    "email": "fabio.dias@ulusofona.pt",
+    "foto": "docentes/fotos/image_2025-04-26_130711365.png"
+  }
+},
+{
+  "model": "portfolio.docente",
+  "pk": 3,
+  "fields": {
+    "nome": "Nuno Fachada",
+    "email": "nuno.fachada@ulusofona.pt",
+    "foto": "docentes/fotos/image_2025-04-27_131802962.png"
+  }
+},
+{
+  "model": "portfolio.docente",
+  "pk": 4,
+  "fields": {
+    "nome": "Diogo Andrade",
+    "email": "diogo.andrade@ulusofona.pt",
+    "foto": "docentes/fotos/image_2025-04-27_132138981.png"
+  }
+},
+{
+  "model": "portfolio.aluno",
+  "pk": 1,
+  "fields": {
+    "nome": "António Rodrigues",
+    "numero_aluno": "a22202884",
+    "email": "antoniorodrigues.gamedev@gmail.com",
+    "foto": "alunos/fotos/image_2025-04-25_135003269.png"
+  }
+},
+{
+  "model": "portfolio.aluno",
+  "pk": 2,
+  "fields": {
+    "nome": "Rafael José",
+    "numero_aluno": "a22202078",
+    "email": "rafaeldavidjose.dev@gmail.com",
+    "foto": "alunos/fotos/image_2025-04-25_135130370.png"
+  }
+},
+{
+  "model": "portfolio.aluno",
+  "pk": 3,
+  "fields": {
+    "nome": "Rodrigo Gomes",
+    "numero_aluno": "a22201252",
+    "email": "rodrigogomes091997@gmail.com",
+    "foto": "alunos/fotos/image_2025-04-25_135210976.png"
+  }
+},
+{
+  "model": "portfolio.aluno",
+  "pk": 4,
+  "fields": {
+    "nome": "Daniel Fernandes",
+    "numero_aluno": "a22202501",
+    "email": "danielmordelfer@gmail.com",
+    "foto": "alunos/fotos/image_2025-04-26_130925039.png"
+  }
+},
+{
+  "model": "portfolio.tecnologia",
+  "pk": 1,
+  "fields": {
+    "nome": "Unity",
+    "site_link": "https://unity.com",
+    "logo": "tecnologias/logos/image_2025-04-25_135240441.png",
+    "descricao": "Unity is a powerful, versatile, and cross-platform game engine developed by Unity Technologies. It's used for creating 2D and 3D games, interactive simulations, and a wide range of immersive experiences across various platforms. Unity is known for its ease of use, particularly for indie developers and beginners, and its extensive ecosystem of tools and resources."
+  }
+},
+{
+  "model": "portfolio.tecnologia",
+  "pk": 2,
+  "fields": {
+    "nome": "Github",
+    "site_link": "https://github.com",
+    "logo": "tecnologias/logos/image_2025-04-25_135350431.png",
+    "descricao": "GitHub is a web-based platform used by software developers to host and manage code using Git, a version control system. It facilitates collaboration, allowing multiple developers to work on the same project simultaneously while tracking changes and integrating contributions."
+  }
+},
+{
+  "model": "portfolio.tecnologia",
+  "pk": 3,
+  "fields": {
+    "nome": "Blender",
+    "site_link": "https://www.blender.org",
+    "logo": "tecnologias/logos/image_2025-04-25_135426858.png",
+    "descricao": "Blender is a free and open-source 3D creation suite. It is used for a wide range of 3D tasks, including modeling, rigging, animation, simulation, rendering, compositing, motion tracking, video editing, and even game asset creation. It's a popular choice for both individuals and small studios due to its unified pipeline and responsive development."
+  }
+},
+{
+  "model": "portfolio.tecnologia",
+  "pk": 4,
+  "fields": {
+    "nome": "Meta Quest VR App",
+    "site_link": "http://www.meta.com/quest/setup/?srsltid=AfmBOorBq1y_OmL2DgFm90qNAysOU3K56VKbT47jaAKForLgYqvI7xnI",
+    "logo": "tecnologias/logos/image_2025-04-26_130950740.png",
+    "descricao": "The Meta Quest app for PC connects your Meta Quest headset to your computer, letting you play powerful PC VR games via Quest Link (USB cable) or Air Link (Wi-Fi). It also manages headset settings, updates, and lets you browse and install VR content."
+  }
+},
+{
+  "model": "portfolio.tecnologia",
+  "pk": 5,
+  "fields": {
+    "nome": "Aseprite",
+    "site_link": "https://www.aseprite.org",
+    "logo": "tecnologias/logos/image_2025-04-27_130937634.png",
+    "descricao": "Aseprite lets you create 2D animations for videogames. From sprites, to pixel-art, retro style graphics, and whatever you like about the 8-bit and 16-bit era."
+  }
+},
+{
+  "model": "portfolio.projeto",
+  "pk": 1,
+  "fields": {
+    "titulo": "Magical Intern",
+    "descricao": "You're just an intern wizard, doing magical stuff in your magical workshop. You accidentally messed up – you dropped the office key into a bubbling cauldron, and now you're locked in! But no worries, because you vaguely remember the master wizard mentioning something about an emergency key. The problem? You can't quite remember what he said. All you know is that he left some clues and puzzles around the room that lead up to the emergency key. Time to channel your inner magic and solve this mystery!",
+    "data_criacao": "2023-10-24",
+    "disciplina": 1,
+    "desafios": "Implement a 3D game for the first time, design puzzles, develop an inventory system, and interaction.",
+    "github_link": "https://github.com/HienaDev/Magical-Intern",
+    "video_demo_link": "https://www.youtube.com/watch?v=gHgSRf4efn0&ab_channel=RafaelJosé",
+    "link_projeto": "https://hienadev.itch.io/magical-intern",
+    "alunos": [
+      1,
+      2,
+      3
+    ],
+    "tecnologias": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "portfolio.projeto",
+  "pk": 2,
+  "fields": {
+    "titulo": "Company Roulette",
+    "descricao": "Company Roulette is a Virtual Reality experience developed in Unity 6 as part of the course 'Realidades Expandidas XR' from the Video Games degree at Universidade Lusófona. The game was only tested with the Meta Quest VR headsets. In this intense psychological showdown, you play as an overworked employee who has finally had enough. You march up to the 42nd floor to confront your eccentric billionaire boss and demand a well-deserved raise. But instead of negotiations, you’re met with a twisted game of chance - one where every decision could mean doubling your salary or losing your job on the spot.",
+    "data_criacao": "2025-02-06",
+    "disciplina": 2,
+    "desafios": "Learning how to implement VR for the first time.",
+    "github_link": "https://github.com/ManfelDev/Company-Roulette",
+    "video_demo_link": "http://www.youtube.com/watch?v=xmiKX2wyeD0&embeds_referring_euri=https%3A%2F%2Fmanfeldev.itch.io%2Fcompany-roulette&source_ve_path=OTY3MTQ",
+    "link_projeto": "https://manfeldev.itch.io/company-roulette",
+    "alunos": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "tecnologias": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "portfolio.projeto",
+  "pk": 3,
+  "fields": {
+    "titulo": "Trash Picker",
+    "descricao": "\"Trash Picker\" is a demonstration game designed to showcase the implementation of a Naive Bayes classifier for creating an AI that learns from human behavior. In this game, you control Luso, a robot tasked with picking up trash in a grid. The game can be played by a human or by an AI that has learned from observing human players.",
+    "data_criacao": "2024-05-18",
+    "disciplina": 3,
+    "desafios": "Create an application to demonstrate the application of a Naive Bayes classifier to mimic human behavior in a grid-based environment.",
+    "github_link": "https://github.com/HienaDev/TrashPickerIA",
+    "video_demo_link": "https://www.youtube.com/watch?v=5cNHy3AoFb0",
+    "link_projeto": "https://manfeldev.itch.io/trash-picker",
+    "alunos": [
+      1,
+      2
+    ],
+    "tecnologias": [
+      1,
+      2,
+      5
+    ]
+  }
+},
+{
+  "model": "portfolio.projeto",
+  "pk": 4,
+  "fields": {
+    "titulo": "Collision Shader",
+    "descricao": "This project is a custom collision shader, when something its an object it propagates a wave through the object from the collision point.",
+    "data_criacao": "2024-01-02",
+    "disciplina": 4,
+    "desafios": "Creating a custom shader from scratch.",
+    "github_link": "https://github.com/HienaDev/Collision-Shader",
+    "video_demo_link": "http://www.youtube.com/watch?v=HGVcDYjpUq0",
+    "link_projeto": "https://hienadev.itch.io/collision-shader",
+    "alunos": [
+      1
+    ],
+    "tecnologias": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 1,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-25_135702072.png",
+    "legenda": "Instruções",
+    "projeto": 1
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 2,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-25_135721684.png",
+    "legenda": "Sala",
+    "projeto": 1
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 3,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-25_135737074.png",
+    "legenda": "Sala 2",
+    "projeto": 1
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 4,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-25_135752452.png",
+    "legenda": "Xadrez",
+    "projeto": 1
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 5,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-26_131239950.png",
+    "legenda": "Company Roulette",
+    "projeto": 2
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 6,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-26_131256572.png",
+    "legenda": "Company Roulette",
+    "projeto": 2
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 7,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-26_131310612.png",
+    "legenda": "Stamp",
+    "projeto": 2
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 8,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-26_131322183.png",
+    "legenda": "UV Light",
+    "projeto": 2
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 9,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-27_164425586.png",
+    "legenda": "Trash Picker",
+    "projeto": 3
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 10,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-27_164443901.png",
+    "legenda": "Trash Picker",
+    "projeto": 3
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 11,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-27_164504391.png",
+    "legenda": "Trash Picker",
+    "projeto": 3
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 12,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-27_164523191.png",
+    "legenda": "Tree Collision",
+    "projeto": 4
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 13,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-27_164536348.png",
+    "legenda": "Statue Collision",
+    "projeto": 4
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 14,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-27_164549663.png",
+    "legenda": "Collision Shader",
+    "projeto": 4
+  }
+},
+{
+  "model": "portfolio.imagem",
+  "pk": 15,
+  "fields": {
+    "imagem": "projetos/imagens/image_2025-04-27_164604726.png",
+    "legenda": "Different Patterns",
+    "projeto": 4
+  }
+}
+]
